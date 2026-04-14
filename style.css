@@ -1,24 +1,26 @@
 :root {
     /* Color Palette */
-    --bg-dark: #121614;
-    --bg-card: #1c221e;
-    --bg-card-hover: #212823;
+    --bg-dark: #071018;
+    --bg-card: #111e2f;
+    --bg-card-hover: #17263b;
 
-    --primary-color: #5d6d5a;
-    --primary-light: #7a8f77;
-    --accent-gold: #cfa856;
-    --accent-gold-hover: #e0b968;
+    --primary-color: #4b6a96;
+    --primary-light: #6a8bb7;
+    --accent-gold: #dcb348;
+    --accent-gold-hover: #f1cc6d;
+    --ui-btn-primary-bg-color: rgb(0, 87, 190);
+    --ui-btn-primary-hover-bg-color: rgb(51, 121, 203);
 
     --text-primary: #ededed;
-    --text-secondary: #a7b5ac;
-    --text-muted: #758379;
+    --text-secondary: #a8b8cc;
+    --text-muted: #7287a1;
 
-    --border-color: #2e3831;
-    --border-light: rgba(93, 109, 90, 0.4);
+    --border-color: #26384a;
+    --border-light: rgba(75, 106, 150, 0.4);
 
     --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.15);
     --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.25);
-    --shadow-glow: 0 0 20px rgba(207, 168, 86, 0.1);
+    --shadow-glow: 0 0 20px rgba(220, 179, 72, 0.1);
 
     --radius-md: 12px;
     --radius-lg: 16px;
@@ -35,8 +37,13 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: var(--bg-dark);
+    background-image: url('background_2560.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
@@ -44,28 +51,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Background Atmosphere */
-.bck-decor-1 {
-    position: absolute;
-    top: -10vw;
-    right: -10vw;
-    width: 40vw;
-    height: 40vw;
-    background: radial-gradient(circle, rgba(93, 109, 90, 0.15) 0%, rgba(18, 22, 20, 0) 70%);
-    border-radius: 50%;
-    z-index: -1;
-}
 
-.bck-decor-2 {
-    position: absolute;
-    bottom: 20vh;
-    left: -15vw;
-    width: 50vw;
-    height: 50vw;
-    background: radial-gradient(circle, rgba(207, 168, 86, 0.05) 0%, rgba(18, 22, 20, 0) 70%);
-    border-radius: 50%;
-    z-index: -1;
-}
 
 /* Typography */
 h1,
@@ -123,12 +109,72 @@ a:hover {
 }
 
 /* Header / Hero */
+.main-header {
+    background-color: #ffffff;
+    padding: 16px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.logo-link {
+    margin-top: 5px;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    height: 40px;
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    transition: transform var(--transition-fast);
+}
+
+.header-logo:hover {
+    transform: scale(1.02);
+}
+
+.main-nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list li a {
+    color: rgb(39, 39, 39);
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    transition: color var(--transition-fast);
+}
+
+.nav-list li a:hover {
+    color: var(--primary-color);
+}
+
+.header-btn {
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 6px rgba(207, 168, 86, 0.2);
+}
+
 .hero {
-    padding: 80px 0 60px;
+    padding: 20px 0 60px;
     text-align: center;
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 10px;
-    background: linear-gradient(180deg, rgba(28, 34, 30, 0.8) 0%, rgba(18, 22, 20, 0) 100%);
+    background: transparent;
 }
 
 .logo {
@@ -167,7 +213,9 @@ main {
 
 /* Cards */
 .card {
-    background-color: var(--bg-card);
+    background-color: rgba(17, 30, 47, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     padding: 40px;
@@ -190,7 +238,10 @@ main {
 
 /* Outline Card */
 .outline-card {
-    background-color: transparent;
+    background-color: rgba(7, 16, 24, 0.5);
+    /* semi-transparent to match the look */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--border-light);
     position: relative;
     overflow: hidden;
@@ -210,7 +261,7 @@ main {
 .alert-box {
     margin-top: 24px;
     padding: 24px;
-    background: rgba(93, 109, 90, 0.15);
+    background: rgba(106, 139, 183, 0.15);
     border-left: 4px solid var(--primary-light);
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
     display: flex;
@@ -252,7 +303,7 @@ main {
     justify-content: center;
     gap: 10px;
     padding: 14px 28px;
-    border-radius: 30px;
+    border-radius: 6px;
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
@@ -261,14 +312,14 @@ main {
 }
 
 .primary-btn {
-    background-color: var(--accent-gold);
-    color: #121212;
+    background-color: var(--ui-btn-primary-bg-color);
+    color: #ffffff;
     border: none;
 }
 
 .primary-btn:hover {
-    background-color: var(--accent-gold-hover);
-    color: #121212;
+    background-color: var(--ui-btn-primary-hover-bg-color);
+    color: #ffffff;
     box-shadow: 0 6px 16px rgba(207, 168, 86, 0.3);
     transform: translateY(-2px);
 }
@@ -318,7 +369,9 @@ main {
 .promo-card {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #1c221e 0%, #2a332a 100%);
+    background: linear-gradient(135deg, rgba(17, 30, 47, 0.8) 0%, rgba(26, 44, 66, 0.8) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .promo-content {
@@ -332,7 +385,7 @@ main {
     right: -50px;
     width: 200px;
     height: 200px;
-    background: radial-gradient(circle, rgba(207, 168, 86, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    background: radial-gradient(circle, rgba(220, 179, 72, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
     border-radius: 50%;
     z-index: 1;
 }
@@ -460,12 +513,12 @@ main {
 }
 
 .contact-link.call {
-    background: rgba(93, 109, 90, 0.2);
-    color: #8fb187;
+    background: rgba(106, 139, 183, 0.2);
+    color: #93b4d4;
 }
 
 .contact-link.call:hover {
-    background: rgba(93, 109, 90, 0.4);
+    background: rgba(106, 139, 183, 0.4);
     color: #fff;
 }
 
@@ -524,7 +577,7 @@ main {
 .fact-highlight {
     padding: 20px;
     border-left: 3px solid var(--accent-gold);
-    background: linear-gradient(90deg, rgba(207, 168, 86, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(90deg, rgba(220, 179, 72, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
     margin-bottom: 24px;
 }
 
@@ -532,7 +585,7 @@ main {
 footer {
     padding: 60px 0;
     border-top: 1px solid var(--border-color);
-    background-color: #0f1210;
+    background-color: var(--bg-dark);
 }
 
 .footer-content {
